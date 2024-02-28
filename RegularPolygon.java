@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+// import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RegularPolygon extends Shape
@@ -12,7 +12,7 @@ public class RegularPolygon extends Shape
     super(x,y);
     this.numSides = numSides;
     this.sideLength = sideLength;
-    double angle = 2 * Math.PI / numSides;
+    // double angle = 2 * Math.PI / numSides;
     radius = 0.5 * sideLength * (1/Math.cos(Math.PI/numSides)); //(1/2) a csc(π/n)
     radius = Math.round(radius * 100.0) / 100.0;
   }
@@ -37,37 +37,37 @@ public class RegularPolygon extends Shape
     return numSides * sideLength;
   }
 
-  public void draw(Point start, Point end)
-  {
-    System.out.println(this.toString());
-    double angle = 2 * Math.PI / numSides;
-    Point pn = this.origin.makePoint(this.sideLength, 0);
-    ArrayList<Point> points = new ArrayList<>();
-    points.add(this.origin);
-    points.add(pn);
-    // this.origin.ShowPoint();
-    // pn.ShowPoint();
-    for (int i = 0; i < numSides - 2 ; i++)
-    {
-      double x = this.sideLength * Math.cos(Math.toRadians(angle));
-      double y = this.sideLength * Math.sin(Math.toRadians(angle));
-      System.out.println("X: " + String.valueOf(x) + "Y: " +  String.valueOf(y));
-      pn = pn.makePoint(x,y);
-      points.add(pn);
-      // pn.ShowPoint();
-    }
-    ArrayList<Point> pointsToDraw = new ArrayList<>(); 
-    for (int i = 0; i < points.size() -1; i++) 
-    {
-      pointsToDraw.addAll(points.get(i).getPointsInBetween(points.get(i+1)));
-    }
-    pointsToDraw.addAll(points.get(points.size() -1).getPointsInBetween(points.get(0)));
-    for (Point point : pointsToDraw) {
-      point.ShowPoint();
-    }
-    System.out.println("");
-    drawAShapeOnGrid(start, end, points);
-  }
+  // public void draw(Point start, Point end)
+  // {
+  //   System.out.println(this.toString());
+  //   double angle = 2 * Math.PI / numSides;
+  //   Point pn = this.origin.makePoint(this.sideLength, 0);
+  //   ArrayList<Point> points = new ArrayList<>();
+  //   points.add(this.origin);
+  //   points.add(pn);
+  //   // this.origin.ShowPoint();
+  //   // pn.ShowPoint();
+  //   for (int i = 0; i < numSides - 2 ; i++)
+  //   {
+  //     double x = this.sideLength * Math.cos(Math.toRadians(angle));
+  //     double y = this.sideLength * Math.sin(Math.toRadians(angle));
+  //     System.out.println("X: " + String.valueOf(x) + "Y: " +  String.valueOf(y));
+  //     pn = pn.makePoint(x,y);
+  //     points.add(pn);
+  //     // pn.ShowPoint();
+  //   }
+  //   ArrayList<Point> pointsToDraw = new ArrayList<>(); 
+  //   for (int i = 0; i < points.size() -1; i++) 
+  //   {
+  //     pointsToDraw.addAll(points.get(i).getPointsInBetween(points.get(i+1)));
+  //   }
+  //   pointsToDraw.addAll(points.get(points.size() -1).getPointsInBetween(points.get(0)));
+  //   for (Point point : pointsToDraw) {
+  //     point.ShowPoint();
+  //   }
+  //   System.out.println("");
+  //   drawAShapeOnGrid(start, end, points);
+  // }
 
   @Override
   public String toString()

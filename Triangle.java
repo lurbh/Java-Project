@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+// import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Triangle extends Shape 
@@ -37,22 +37,22 @@ public class Triangle extends Shape
     return base + height + hypotenuse;
   }
 
-  public void draw(Point start, Point end) 
-  {
-    System.out.println("Drawing a Triangle with bottom left point at " + origin + " with sides " + base + ", " + height
-        + ", " + hypotenuse);
-    Point p1 = this.origin.makePoint(this.base, 0);
-    Point p2 = this.origin.makePoint(0, this.height);
-    ArrayList<Point> pointsToDraw = new ArrayList<>(); 
-    pointsToDraw.addAll(this.origin.getPointsInBetween(p1));
-    pointsToDraw.addAll(p1.getPointsInBetween(p2));
-    pointsToDraw.addAll(p2.getPointsInBetween(this.origin));
-    for (Point point : pointsToDraw) {
-      point.ShowPoint();
-    }
-    System.out.println("");
-    drawAShapeOnGrid(start, end, pointsToDraw);
-  }
+  // public void draw(Point start, Point end) 
+  // {
+  //   System.out.println("Drawing a Triangle with bottom left point at " + origin + " with sides " + base + ", " + height
+  //       + ", " + hypotenuse);
+  //   Point p1 = this.origin.makePoint(this.base, 0);
+  //   Point p2 = this.origin.makePoint(0, this.height);
+  //   ArrayList<Point> pointsToDraw = new ArrayList<>(); 
+  //   pointsToDraw.addAll(this.origin.getPointsInBetween(p1));
+  //   pointsToDraw.addAll(p1.getPointsInBetween(p2));
+  //   pointsToDraw.addAll(p2.getPointsInBetween(this.origin));
+  //   for (Point point : pointsToDraw) {
+  //     point.ShowPoint();
+  //   }
+  //   System.out.println("");
+  //   drawAShapeOnGrid(start, end, pointsToDraw);
+  // }
 
   @Override
   public String toString()

@@ -5,8 +5,8 @@ public class Main
 {
   private static ArrayList<Shape> ShapeList = new ArrayList<>();
   private static Scanner scanner = new Scanner(System.in);
-  private static Point gridbtmleft = new Point(0,0);
-  private static Point gridtopright = new Point(10,10);
+  // private static Point gridbtmleft = new Point(0,0);
+  // private static Point gridtopright = new Point(10,10);
 
   public static void main(String[] args) 
   {
@@ -323,19 +323,19 @@ public class Main
     System.out.println("No Shape with that id found.");
   }
 
-  private static void drawShape()
-  {
-    System.out.print("Enter the id of the Shape to show draw: ");
-    int id = scanner.nextInt();
-    scanner.nextLine();
-    for(Shape s : ShapeList)
-    {
-      if(s.shapeId == id)
-      {
-        s.draw(gridbtmleft,gridtopright);
-        return;
-      }
-    }
-    System.out.println("No Shape with that id found.");
-  }
+  // private static void drawShape()
+  // {
+  //   System.out.print("Enter the id of the Shape to show draw: ");
+  //   int id = scanner.nextInt();
+  //   scanner.nextLine();
+  //   for(Shape s : ShapeList)
+  //   {
+  //     if(s.shapeId == id)
+  //     {
+  //       s.draw(gridbtmleft,gridtopright);
+  //       return;
+  //     }
+  //   }
+  //   System.out.println("No Shape with that id found.");
+  // }
 }

@@ -12,7 +12,7 @@ abstract class Shape
 
   public abstract double calculatePerimeter();
 
-  public abstract void draw(Point start, Point end);
+  // public abstract void draw(Point start, Point end);
 
   public void editShape(Scanner scanner)
   {

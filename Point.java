@@ -161,7 +161,7 @@ public class Point {
           while (error >= 0.0f)
           {
             System.out.println("   Moving Y to " + y);
-            double res = (deltaY <= 0.0 && y >= p2.y)  ? y--: y++;
+            if(deltaY <= 0.0 && y >= p2.y) y--; else y++;
               result.add(new Point(x, y));
               error -= 1.0f;
           }

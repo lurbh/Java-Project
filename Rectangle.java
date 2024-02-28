@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
+// import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Rectangle extends Shape 
@@ -31,23 +30,23 @@ public class Rectangle extends Shape
     return 2 * (width + height);
   }
 
-  public void draw(Point start, Point end)
-  {
-    System.out.println("Drawing a rectangle at " + origin + " with width " + width + " and height " + height);
-    Point p1 = this.origin.makePoint(this.width, 0);
-    Point p3 = this.origin.makePoint(0, this.height);
-    Point p2 = this.origin.makePoint(this.width, this.height);
-    ArrayList<Point> pointsToDraw = new ArrayList<>(); 
-    pointsToDraw.addAll(this.origin.getPointsInBetween(p1));
-    pointsToDraw.addAll(p1.getPointsInBetween(p2));
-    pointsToDraw.addAll(p2.getPointsInBetween(p3));
-    pointsToDraw.addAll(p3.getPointsInBetween(this.origin));
-    // for (Point point : pointsToDraw) {
-    //   point.ShowPoint();
-    // }
-    // System.out.println("");
-    drawAShapeOnGrid(start, end, pointsToDraw);
-  }
+  // public void draw(Point start, Point end)
+  // {
+  //   System.out.println("Drawing a rectangle at " + origin + " with width " + width + " and height " + height);
+  //   Point p1 = this.origin.makePoint(this.width, 0);
+  //   Point p3 = this.origin.makePoint(0, this.height);
+  //   Point p2 = this.origin.makePoint(this.width, this.height);
+  //   ArrayList<Point> pointsToDraw = new ArrayList<>(); 
+  //   pointsToDraw.addAll(this.origin.getPointsInBetween(p1));
+  //   pointsToDraw.addAll(p1.getPointsInBetween(p2));
+  //   pointsToDraw.addAll(p2.getPointsInBetween(p3));
+  //   pointsToDraw.addAll(p3.getPointsInBetween(this.origin));
+  //   // for (Point point : pointsToDraw) {
+  //   //   point.ShowPoint();
+  //   // }
+  //   // System.out.println("");
+  //   drawAShapeOnGrid(start, end, pointsToDraw);
+  // }
 
   @Override
   public String toString()
