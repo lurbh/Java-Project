@@ -4,25 +4,25 @@ public class Point {
   protected double x;
   protected double y;
 
-  Point() {
+  public Point() {
     x = 0;
     y = 0;
   }
 
-  Point(int x, int y) 
+  public Point(int x, int y) 
   {
     this.x = x;
     this.y = y;
   }
 
-  Point(double x, double y) 
+  public Point(double x, double y) 
   {
     // System.out.println("x: " + x + ", y: " + y);
     this.x = Math.round(x * 100.0) / 100.0;;
     this.y = Math.round(y * 100.0) / 100.0;;
   }
 
-  Point(Point p)
+  public Point(Point p)
   {
     this.x = p.x;
     this.y = p.y;
