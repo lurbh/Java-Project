@@ -1,4 +1,4 @@
-// import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RegularPolygon extends Shape
@@ -37,37 +37,21 @@ public class RegularPolygon extends Shape
     return numSides * sideLength;
   }
 
-  // public void draw(Point start, Point end)
-  // {
-  //   System.out.println(this.toString());
-  //   double angle = 2 * Math.PI / numSides;
-  //   Point pn = this.origin.makePoint(this.sideLength, 0);
-  //   ArrayList<Point> points = new ArrayList<>();
-  //   points.add(this.origin);
-  //   points.add(pn);
-  //   // this.origin.ShowPoint();
-  //   // pn.ShowPoint();
-  //   for (int i = 0; i < numSides - 2 ; i++)
-  //   {
-  //     double x = this.sideLength * Math.cos(Math.toRadians(angle));
-  //     double y = this.sideLength * Math.sin(Math.toRadians(angle));
-  //     System.out.println("X: " + String.valueOf(x) + "Y: " +  String.valueOf(y));
-  //     pn = pn.makePoint(x,y);
-  //     points.add(pn);
-  //     // pn.ShowPoint();
-  //   }
-  //   ArrayList<Point> pointsToDraw = new ArrayList<>(); 
-  //   for (int i = 0; i < points.size() -1; i++) 
-  //   {
-  //     pointsToDraw.addAll(points.get(i).getPointsInBetween(points.get(i+1)));
-  //   }
-  //   pointsToDraw.addAll(points.get(points.size() -1).getPointsInBetween(points.get(0)));
-  //   for (Point point : pointsToDraw) {
-  //     point.ShowPoint();
-  //   }
-  //   System.out.println("");
-  //   drawAShapeOnGrid(start, end, points);
-  // }
+  public void drawPoints(Point start, Point end)
+  {
+    System.out.println("Drawing Regular Polygon Points with bottom left point at " + origin + " with " + numSides + " sides of " + sideLength 
+      + " length and a radius of " + radius);
+    ArrayList<Point> pointsToDraw = new ArrayList<>();
+    for (int i = 0; i < numSides; i++)
+    {
+      double x = this.origin.x + radius * Math.cos(2 * Math.PI * i / numSides);
+      double y = this.origin.y + radius * Math.sin(2 * Math.PI * i / numSides);
+      // System.out.println("x: " + x + ", y: " + y);
+      Point p = new Point((int)x, (int)y);
+      pointsToDraw.add(p);
+    }
+    drawAShapeOnGrid(start, end, pointsToDraw);
+  }
 
   @Override
   public String toString()
@@ -97,12 +81,11 @@ public class RegularPolygon extends Shape
 
   public void ShowOtherPoints()
   {
-    double angle = (numSides -2 ) * Math.PI / numSides;
     String points = "";
     for (int i = 0; i < numSides; i++)
     {
-      double x = this.origin.x + radius * Math.sin(i * angle);
-      double y = this.origin.y + radius * Math.cos(i * angle);
+      double x = this.origin.x + radius * Math.cos(2 * Math.PI * i / numSides);
+      double y = this.origin.y + radius * Math.sin(2 * Math.PI * i / numSides);
       // System.out.println("x: " + x + ", y: " + y);
       Point p = new Point(x, y);
       points += p.toString() + ", ";

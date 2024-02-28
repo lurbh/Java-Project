@@ -12,7 +12,7 @@ abstract class Shape
 
   public abstract double calculatePerimeter();
 
-  // public abstract void draw(Point start, Point end);
+  public abstract void drawPoints(Point start, Point end);
 
   public void editShape(Scanner scanner)
   {
@@ -88,18 +88,18 @@ abstract class Shape
     return str;
   }
 
-  public void drawAShapeOnGrid(Point start, Point end,ArrayList<Point> pointsToDraw)
+  public void drawAShapeOnGrid(Point start, Point end, ArrayList<Point> pointsToDraw)
   {
     System.out.print(padString("Y\\X" ,3));
-    for (int viewx = (int)start.x; viewx <= end.x; viewx ++)
+    for (int viewx = (int)start.x; viewx <= (int)end.x; viewx ++)
     {
       System.out.print(padString(String.valueOf(viewx) ,3));
     }
     System.out.println("");
-    for (int viewy = (int)end.y; viewy >= start.y; viewy --)
+    for (int viewy = (int)end.y; viewy >= (int)start.y; viewy --)
     {
       System.out.print(padString(String.valueOf(viewy) ,3));
-      for (int viewx = (int)start.x; viewx <= end.x; viewx ++)
+      for (int viewx = (int)start.x; viewx <= (int)end.x; viewx ++)
       {
         if(pointsToDraw.contains(new Point(viewx,viewy)))
         {
@@ -114,7 +114,7 @@ abstract class Shape
       System.out.println("");
     }
     System.out.print(padString("Y/X" ,3));
-    for (int viewx = (int)start.x; viewx <= end.x; viewx ++)
+    for (int viewx = (int)start.x; viewx <= (int)end.x; viewx ++)
     {
       System.out.print(padString(String.valueOf(viewx) ,3));
     }

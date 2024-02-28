@@ -1,4 +1,4 @@
-// import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Square extends Shape 
@@ -27,19 +27,19 @@ public class Square extends Shape
     return 4 * length;
   }
 
-  // public void draw(Point start, Point end) 
-  // {
-  //   System.out.println("Drawing a Square at " + origin + " with length " + length);
-  //   Point p1 = this.origin.makePoint(this.length, 0);
-  //   Point p2 = this.origin.makePoint(this.length, this.length);
-  //   Point p3 = this.origin.makePoint(0, this.length);
-  //   ArrayList<Point> pointsToDraw = new ArrayList<>(); 
-  //   pointsToDraw.addAll(this.origin.getPointsInBetween(p1));
-  //   pointsToDraw.addAll(p1.getPointsInBetween(p2));
-  //   pointsToDraw.addAll(p2.getPointsInBetween(p3));
-  //   pointsToDraw.addAll(p3.getPointsInBetween(this.origin));
-  //   drawAShapeOnGrid(start, end, pointsToDraw);
-  // }
+  public void drawPoints(Point start, Point end) 
+  {
+    System.out.println("Drawing a Square at " + origin + " with length " + length);
+    Point p1 = this.origin.makePoint(this.length, 0);
+    Point p2 = this.origin.makePoint(this.length, this.length);
+    Point p3 = this.origin.makePoint(0, this.length);
+    ArrayList<Point> pointsToDraw = new ArrayList<>(); 
+    pointsToDraw.addAll(this.origin.getPointsInBetween(p1));
+    pointsToDraw.addAll(p1.getPointsInBetween(p2));
+    pointsToDraw.addAll(p2.getPointsInBetween(p3));
+    pointsToDraw.addAll(p3.getPointsInBetween(this.origin));
+    drawAShapeOnGrid(start, end, pointsToDraw);
+  }
 
   @Override
   public String toString()

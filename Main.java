@@ -5,8 +5,8 @@ public class Main
 {
   private static ArrayList<Shape> ShapeList = new ArrayList<>();
   private static Scanner scanner = new Scanner(System.in);
-  // private static Point gridbtmleft = new Point(0,0);
-  // private static Point gridtopright = new Point(10,10);
+  private static Point gridbtmleft = new Point(0,0);
+  private static Point gridtopright = new Point(10,10);
 
   public static void main(String[] args) 
   {
@@ -18,11 +18,11 @@ public class Main
     // System.out.print("Testing: ");
     // System.out.println(pointsToDraw.contains(test));
     // System.out.println(test.equals(gridtopright));
-    ShapeList.add(new Circle(1,1,2));
+    ShapeList.add(new Circle(5,5,2));
     ShapeList.add(new Square(2,1,3));
     ShapeList.add(new Rectangle(3,5,2,3));
     ShapeList.add(new Triangle(5,2,2,3));
-    ShapeList.add(new RegularPolygon(1,6,5,2));
+    ShapeList.add(new RegularPolygon(4,6,5,2));
     do 
     {
       int choice = displayMenu();
@@ -58,11 +58,11 @@ public class Main
         case 10:
           showShapePoints();
           break;
-        // case 11:
-        //   drawShape();
-        //   break;
+        case 11:
+          drawShape();
+          break;
       }
-      if (choice == 11)
+      if (choice == 12)
         break;
     } while (true);
     System.out.println("System Exit...");
@@ -85,13 +85,13 @@ public class Main
       System.out.println("8. Show a Shape Perimeter");
       System.out.println("9. Show all Shape Points");
       System.out.println("10. Show a Shape Points");
-      // System.out.println("11. Draw a Shape");
-      System.out.println("11. Exit");
+      System.out.println("11. Draw a Shape");
+      System.out.println("12. Exit");
 
       System.out.print("Enter your choice: ");
       choice = scanner.nextInt();
       scanner.nextLine(); //consume the newline character in the buffer
-      if (choice >= 1 && choice <= 11) 
+      if (choice >= 1 && choice <= 12) 
         break;  
       else
         System.out.println("Enter a valid choice.");
@@ -140,7 +140,7 @@ public class Main
           System.out.println("Enter a valid choice.");
           break;
       }
-      System.out.println(choice);
+      // System.out.println(choice);
       if (choice >= 1 && choice <=5) 
         break;
     }
@@ -323,19 +323,19 @@ public class Main
     System.out.println("No Shape with that id found.");
   }
 
-  // private static void drawShape()
-  // {
-  //   System.out.print("Enter the id of the Shape to show draw: ");
-  //   int id = scanner.nextInt();
-  //   scanner.nextLine();
-  //   for(Shape s : ShapeList)
-  //   {
-  //     if(s.shapeId == id)
-  //     {
-  //       s.draw(gridbtmleft,gridtopright);
-  //       return;
-  //     }
-  //   }
-  //   System.out.println("No Shape with that id found.");
-  // }
+  private static void drawShape()
+  {
+    System.out.print("Enter the id of the Shape to show draw: ");
+    int id = scanner.nextInt();
+    scanner.nextLine();
+    for(Shape s : ShapeList)
+    {
+      if(s.shapeId == id)
+      {
+        s.drawPoints(gridbtmleft,gridtopright);
+        return;
+      }
+    }
+    System.out.println("No Shape with that id found.");
+  }
 }

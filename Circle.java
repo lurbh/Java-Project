@@ -1,4 +1,4 @@
-// import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Circle extends Shape
@@ -27,15 +27,21 @@ public class Circle extends Shape
     return Math.round((2 * Math.PI * radius) * 100.0) / 100.0;
   }
 
-  // public void draw(Point start, Point end)
-  // {
-  //   System.out.println("Drawing a Circle with center at " + origin + " with radius " + radius);
-  //   Point p1 = this.origin.makePoint(this.radius, 0);
-  //   Point p2 = this.origin.makePoint(0, this.radius);
-  //   Point p3 = this.origin.makePoint(-this.radius, 0);
-  //   Point p4 = this.origin.makePoint(0, -this.radius);
-  //   ArrayList<Point> pointsToDraw = new ArrayList<>(); 
-  // }
+  public void drawPoints(Point start, Point end)
+  {
+    System.out.println("Drawing a Circle Points with center at " + origin + " with radius " + radius);
+    Point p1 = this.origin.makePoint(this.radius, 0);
+    Point p2 = this.origin.makePoint(0, this.radius);
+    Point p3 = this.origin.makePoint(-this.radius, 0);
+    Point p4 = this.origin.makePoint(0, -this.radius);
+    ArrayList<Point> pointsToDraw = new ArrayList<>(); 
+    pointsToDraw.add(this.origin);
+    pointsToDraw.add(p1);
+    pointsToDraw.add(p2);
+    pointsToDraw.add(p3);
+    pointsToDraw.add(p4);
+    drawAShapeOnGrid(start, end, pointsToDraw);
+  }
 
   @Override
   public String toString()
