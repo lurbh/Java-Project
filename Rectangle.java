@@ -56,18 +56,29 @@ public class Rectangle extends Shape
 
   public void setWidth(int width) 
   {
-    this.width = width;
+    if(width > 0)
+      this.width = width;
+    else
+      throw new IllegalArgumentException("Invalid width. Please provide a non-negative value.");
   }
 
   public void setHeight(int height) 
   {
-    this.height = height;
+    if(height > 0)
+      this.height = height;
+    else 
+      throw new IllegalArgumentException("Invalid height. Please provide a non-negative value.");
   }
 
   public void SetDimensions(int width, int height)
   {
-    this.width = width;
-    this.height = height;
+    if(width > 0  && height > 0)
+    {
+      this.width = width;
+      this.height = height;
+    }
+    else 
+      throw new IllegalArgumentException("Invalid Dimensions. Please provide a non-negative value.");
   }
 
   public int getWidth() 
@@ -97,10 +108,10 @@ public class Rectangle extends Shape
   {
     super.editShape(scanner);
     System.out.print("Enter the new width for the Rectangle: ");
-    width = scanner.nextInt();
+    setWidth(scanner.nextInt());
     scanner.nextLine();
     System.out.print("Enter the new height for the Rectangle: ");
-    height = scanner.nextInt();
+    setHeight(scanner.nextInt());
     scanner.nextLine();
   }
 }

@@ -51,7 +51,10 @@ public class Circle extends Shape
 
   public void setRadius(double radius)
   {
-    this.radius = radius;
+    if(radius > 0)
+      this.radius = radius;
+    else
+      throw new IllegalArgumentException("Invalid radius. Please provide a non-negative value.");
   }
 
   public double getRadius()
@@ -79,7 +82,7 @@ public class Circle extends Shape
   {
     super.editShape(scanner);
     System.out.print("Enter the new radius for the Circle: ");
-    radius = scanner.nextDouble();
+    this.setRadius(scanner.nextDouble());
     scanner.nextLine();
   }
 }

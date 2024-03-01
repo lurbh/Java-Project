@@ -58,12 +58,26 @@ public class Triangle extends Shape
 
   public void setbase(int base) 
   {
-    this.base = base;
+    if(base > 0)
+    {
+      this.base = base;
+      double hypotenuse = Math.sqrt(this.height * this.height + this.base * this.base);
+      sethypotenuse(Math.round(hypotenuse * 100.0) / 100.0);
+    }
+    else
+      throw new IllegalArgumentException("Invalid base length. Please provide a non-negative value.");
   }
 
   public void setheight(int height) 
   {
-    this.height = height;
+    if(height > 0)
+    {
+      this.height = height;
+      double hypotenuse = Math.sqrt(this.height * this.height + this.base * this.base);
+      sethypotenuse(Math.round(hypotenuse * 100.0) / 100.0);
+    }
+    else
+      throw new IllegalArgumentException("Invalid height length. Please provide a non-negative value.");
   }
 
   public void sethypotenuse(double hypotenuse) 
@@ -71,11 +85,17 @@ public class Triangle extends Shape
     this.hypotenuse = hypotenuse;
   }
 
-  public void SetSides(int base, int height, int hypotenuse) 
+  public void SetSides(int base, int height) 
   {
-    this.base = base;
-    this.height = height;
-    this.hypotenuse = hypotenuse;
+    if(height > 0 && base > 0)
+    {
+      this.base = base;
+      this.height = height;
+      double hypotenuse = Math.sqrt(this.height * this.height + this.base * this.base);
+      sethypotenuse(Math.round(hypotenuse * 100.0) / 100.0);
+    }
+    else
+      throw new IllegalArgumentException("Invalid sides length. Please provide a non-negative value.");
   }
 
   public int getbase() 

@@ -16,12 +16,19 @@ abstract class Shape
 
   public void editShape(Scanner scanner)
   {
-    System.out.print("Enter the new x-coordinate of the origin point for the shape: ");
-    origin.setX(scanner.nextInt()); 
-    scanner.nextLine();
-    System.out.print("Enter the new y-coordinate of the origin point for the shape: ");
-    origin.setY(scanner.nextInt());
-    scanner.nextLine();
+    try
+    {
+      System.out.print("Enter the new x-coordinate of the origin point for the shape: ");
+      origin.setX(scanner.nextDouble()); 
+      scanner.nextLine();
+      System.out.print("Enter the new y-coordinate of the origin point for the shape: ");
+      origin.setY(scanner.nextDouble());
+      scanner.nextLine();
+    }
+    catch (Exception ex)
+    {
+      throw new IllegalArgumentException("Invalid Input. Plese Kkey in a number.");
+    }
   }
 
   public String toString()
@@ -43,6 +50,16 @@ abstract class Shape
     origin = new Point(p);
   }
 
+  public Point getorigin()
+  {
+    return origin;
+  }
+
+  public void setorigin(Point p)
+  {
+    this.origin = p;
+  }
+
   public int getShapeID()
   {
     return shapeId;
@@ -50,7 +67,10 @@ abstract class Shape
 
   public void setShapeID(int id)
   {
-    this.shapeId = id;
+    if(id > 0)
+      this.shapeId = id;
+    else
+      throw new IllegalArgumentException("Invalid ID. Please provide a non-negative value.");
   }
 
   public String padString(String s, int length)

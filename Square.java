@@ -49,7 +49,10 @@ public class Square extends Shape
 
   public void setLength(int length) 
   {
-    this.length = length;
+    if(length > 0)
+      this.length = length;
+    else
+      throw new IllegalArgumentException("Invalid legth. Please provide a non-negative value.");
   }
 
   public int getLength() {

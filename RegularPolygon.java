@@ -61,12 +61,18 @@ public class RegularPolygon extends Shape
 
   public void setNumSides(int numSides)
   {
-    this.numSides = numSides;
+    if(numSides > 0)
+      this.numSides = numSides;
+    else
+      throw new IllegalArgumentException("Invalid number of sides . Please provide a non-negative value.");
   }
 
   public void setSideLength(int sideLength)
   {
-    this.sideLength = sideLength;
+    if(sideLength > 0)
+      this.sideLength = sideLength;
+    else
+      throw new IllegalArgumentException("Invalid side length. Please provide a non-negative value.");
   }
 
   public int getNumSides()
